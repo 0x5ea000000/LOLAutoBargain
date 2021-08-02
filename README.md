@@ -3,9 +3,9 @@ tool spam codes for garena league of legend 9 age birthday event
 
 English version below
 ## Change Log
-1.2 Thêm spam đổi tinh hoa lam
-1.1 build ra bản độc lập 32 bit, ai cũng dùng được
-1.0 bản đầu tiên, mấy ông không có sdk, x32 hẹo hết 
+1.2 Thêm spam đổi tinh hoa lam   
+1.1 build ra bản độc lập 32 bit, ai cũng dùng được   
+1.0 bản đầu tiên, mấy ông không có sdk, x32 hẹo hết    
 
 ## Ưu điểm:
 - Sử dụng API, không chiếm cửa sổ LOL
