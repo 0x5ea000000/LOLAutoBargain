@@ -11,12 +11,15 @@ namespace JPClientStart
         public static async Task Main()
         {
             Console.WriteLine("Welcome to AUTO Bargain Helper!");
-            ShowOption();
-            //option = int.Parse(Console.ReadLine());
-            option = 1;
-            await ExecuteOptionAsync();
-            Console.WriteLine("Press any key to exit...");
-            Console.ReadKey();
+            while(true)
+            {
+                ShowOption();
+                option = int.Parse(Console.ReadLine());
+                //option = 1;
+                await ExecuteOptionAsync();
+            }
+            //Console.WriteLine("Press any key to exit...");
+            //Console.ReadKey();
 
         }
 
@@ -24,7 +27,7 @@ namespace JPClientStart
         {
             Console.WriteLine("Select your option: ");
             Console.WriteLine("1. Auto enter codes");
-
+            Console.WriteLine("2. Auto convert blue essence");
         }
 
         private static async Task ExecuteOptionAsync()
@@ -33,6 +36,9 @@ namespace JPClientStart
             {
                 case 1:
                     await AutoBargain.Run();
+                    break;
+                case 2:
+                    await AutoBlueEssence.Run();
                     break;
             }
         }
