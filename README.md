@@ -2,10 +2,14 @@
 tool spam codes for garena league of legend 9 age birthday event
 
 English version below
+## Change Log
+1.2 Thêm spam đổi tinh hoa lam
+1.1 build ra bản độc lập 32 bit, ai cũng dùng được
+1.0 bản đầu tiên, mấy ông không có sdk, x32 hẹo hết 
 
 ## Ưu điểm:
 - Sử dụng API, không chiếm cửa sổ LOL
-- Lấy token đang đăng nhập cửa sổ LOL, ông nào 2 mặt hoặc muốn lấy le với gái thì chỉ cần login vào acc khác chạy lại là đc
+- Lấy token đang đăng nhập cửa sổ LOL, ông nào 2 mặt hoặc muốn lấy le với gái thì chỉ cần login vào acc khác chạy lại là được
 - Chỉ chậm hơn tốc độ lật mặt của người yêu cũ
 ## Nhược điểm
 - nhược điểm lớn nhất là chưa tìm thêm được nhược điểm để kể
