@@ -99,7 +99,6 @@ namespace LOLAutoBargain
 
             Console.WriteLine("---------------------------------------------------------");
 
-            Console.WriteLine("Getting profile ...");
             CookieContainer cookies = new();
             HttpClientHandler handler = new();
             handler.CookieContainer = cookies;
@@ -109,84 +108,47 @@ namespace LOLAutoBargain
             client.DefaultRequestHeaders.Add("token", landingToken);
             client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) LeagueOfLegendsClient/11.15.388.2387 (CEF 74) Safari/537.36");
 
-            var configResponse = client.GetAsync("https://bargain.lol.garena.vn/api/config");
-            var cfgmsg = await configResponse;
-            Console.WriteLine(await cfgmsg.Content.ReadAsStringAsync());
-            Console.WriteLine("---------------------------------------------------------");
+            //Console.WriteLine("Getting profile ...");
+            //var configResponse = client.GetAsync("https://bargain.lol.garena.vn/api/config");
+            //var cfgmsg = await configResponse;
+            //Console.WriteLine(await cfgmsg.Content.ReadAsStringAsync());
+            //Console.WriteLine("---------------------------------------------------------");
 
-            var profileResponse = client.GetAsync("https://bargain.lol.garena.vn/api/profile");
-            var msg = await profileResponse;
-            Console.WriteLine(await msg.Content.ReadAsStringAsync());
-            Console.WriteLine("---------------------------------------------------------");
+            //var profileResponse = client.GetAsync("https://bargain.lol.garena.vn/api/profile");
+            //var msg = await profileResponse;
+            //Console.WriteLine(await msg.Content.ReadAsStringAsync());
+            //Console.WriteLine("---------------------------------------------------------");
 
-            Uri uri = new Uri("https://bargain.lol.garena.vn");
-            IEnumerable<Cookie> responseCookies = cookies.GetCookies(uri).Cast<Cookie>();
-            foreach (Cookie cookie in responseCookies)
-            {
-                Console.WriteLine(cookie.Name + ": " + cookie.Value);
-            }
+            //Uri uri = new Uri("https://bargain.lol.garena.vn");
+            //IEnumerable<Cookie> responseCookies = cookies.GetCookies(uri).Cast<Cookie>();
+            //foreach (Cookie cookie in responseCookies)
+            //{
+            //    Console.WriteLine(cookie.Name + ": " + cookie.Value);
+            //}
 
             Console.WriteLine("Spamming codes ...");
 
-            for(int i = 0; i < codes.Count; i++)
+            for (int i = 0; i < codes.Count; i++)
             {
                 var jsonObject = new StringContent($"{{\"code\":\"{codes[i]}\",\"confirm\": true}}", Encoding.UTF8, "application/json");
-                Console.WriteLine(await jsonObject.ReadAsStringAsync());
+                Console.WriteLine(codes[i]);
 
                 var enterResponse = client.PostAsync("https://bargain.lol.garena.vn/api/enter", jsonObject);
 
                 var entermsg = await enterResponse;
 
-                Console.WriteLine(await entermsg.Content.ReadAsStringAsync());
+                var msgstr = await entermsg.Content.ReadAsStringAsync();
+
+                Console.WriteLine(msgstr);
+                if (msgstr == "{\"error\": \"ERROR__ENTER_CODE_AMOUNT_OUT_OF_QUOTA\"}")
+                {
+                    Console.WriteLine("---------------------------------------------------------");
+                    Console.WriteLine("MAXIMUM REACHED!");
+                    break;
+                }
                 Console.WriteLine("---------------------------------------------------------");
             }
-            
 
-            //bool quit = false;
-            //while (!quit)
-            //{
-            //    Console.WriteLine("Select Client locale: ");
-            //    Console.WriteLine("1. vn_VN");
-            //    Console.WriteLine("2. en_US");
-            //    Console.WriteLine("3. ja_JP");
-            //    Console.WriteLine("4. ko_KR");
-
-            //    int option = int.Parse(Console.ReadLine());
-
-            //    Console.WriteLine($"Your Option: {option}");
-
-            //    switch (option)
-            //    {
-            //        case 1:
-            //            commandLine = Regex.Replace(commandLine, localePattern, "--locale=vn_VN ");
-
-            //            break;
-            //        case 2:
-            //            commandLine = Regex.Replace(commandLine, localePattern, "--locale=en_US ");
-            //            Console.WriteLine("Change locale successfully");
-            //            quit = true;
-            //            break;
-            //        case 3:
-            //            commandLine = Regex.Replace(commandLine, localePattern, "--locale=ja_JP ");
-            //            Console.WriteLine("Change locale successfully");
-            //            quit = true;
-            //            break;
-            //        case 4:
-            //            commandLine = Regex.Replace(commandLine, localePattern, "--locale=ko_KR ");
-            //            Console.WriteLine("Change locale successfully");
-            //            quit = true;
-            //            break;
-            //        default:
-            //            Console.WriteLine("Dont Understand?");
-            //            break;
-            //    }
-            //}
-            //var client = Process.Start(Path, Args);
-            //if (client.Id != 0)
-            //{
-            //    Console.WriteLine("Client Started successfully! Press any key to go back...");
-            //    Console.ReadKey();
-            //}
         }
     }
 }
