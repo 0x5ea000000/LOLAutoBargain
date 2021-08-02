@@ -11,7 +11,7 @@ English version below
 - nhược điểm lớn nhất là chưa tìm thêm được nhược điểm để kể
 
 ## Hướng dẫn sử dụng
-1. Vào Release, cứ bản mới nhất mà tải :D
+1. Vào Release, tải publish.zip. Cứ bản mới nhất mà tải :D
 2. Giải nén ra
 3. Mở LOL
 4. Mở file exe trong folder vừa giải nén
