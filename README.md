@@ -5,7 +5,7 @@ English version below
 
 ## Ưu điểm:
 - Sử dụng API, không chiếm cửa sổ LOL
-- Lấy token đang đăng nhập cửa sổ LOL
+- Lấy token đang đăng nhập cửa sổ LOL, ông nào 2 mặt hoặc muốn lấy le với gái thì chỉ cần login vào acc khác chạy lại là đc
 - Chỉ chậm hơn tốc độ lật mặt của người yêu cũ
 ## Nhược điểm
 - nhược điểm lớn nhất là chưa tìm thêm được nhược điểm để kể
