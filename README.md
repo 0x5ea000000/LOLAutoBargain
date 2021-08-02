@@ -1,9 +1,9 @@
 # LOLAutoBargain
 tool spam codes for garena league of legend 9 age birthday event
 
-*Quảng cáo: em còn có tool đổi ngôn ngữ sang nhật bổn, hàn quắc,... gì cũng được miễn là các bác có language pack của version client đấy(copy từ client của mấy vùng riot quản lý). trc em có làm bản nhật mà sau lười quá :V 
-link đây k nói nhiều nữa: https://github.com/haipro287/JPClientStarter
-Nếu thấy hay thì cho em 1 star nhé hjhj >.<
+*Quảng cáo: em còn có tool đổi ngôn ngữ sang nhật bổn, hàn quắc,... gì cũng được miễn là các bác có language pack của version client đấy(copy từ client của mấy vùng riot quản lý). trc em có làm bản nhật mà sau lười quá :V    
+link đây k nói nhiều nữa: https://github.com/haipro287/JPClientStarter    
+Nếu thấy hay thì cho em 1 star nhé hjhj >.<   
 
 English version below
 ## Change Log
