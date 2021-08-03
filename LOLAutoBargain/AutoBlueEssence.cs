@@ -114,7 +114,7 @@ namespace LOLAutoBargain
                 var jsonObject = new StringContent($"{{\"type\":2,\"item_id\": 9}}", Encoding.UTF8, "application/json");
                 Console.WriteLine(i);
 
-                var enterResponse = client.PostAsync("https://bargain.lol.garena.vn/api/redeem", jsonObject);
+                var enterResponse = client.PostAsync("https://bargain.lol.garena.in.th/api/redeem", jsonObject);
 
                 var entermsg = await enterResponse;
 
