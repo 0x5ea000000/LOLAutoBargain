@@ -133,7 +133,7 @@ namespace LOLAutoBargain
                 var jsonObject = new StringContent($"{{\"code\":\"{codes[i]}\",\"confirm\": true}}", Encoding.UTF8, "application/json");
                 Console.WriteLine(codes[i]);
 
-                var enterResponse = client.PostAsync("https://bargain.lol.garena.vn/api/enter", jsonObject);
+                var enterResponse = client.PostAsync("https://bargain.lol.garena.in.th/api/enter", jsonObject);
 
                 var entermsg = await enterResponse;
 
