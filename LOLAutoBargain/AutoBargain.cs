@@ -108,37 +108,41 @@ namespace LOLAutoBargain
             client.DefaultRequestHeaders.Add("token", landingToken);
             client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) LeagueOfLegendsClient/11.15.388.2387 (CEF 74) Safari/537.36");
             client.DefaultRequestHeaders.Add("referer", $"https://bargain.lol.garena.vn/?token={landingToken}");
+            client.DefaultRequestHeaders.Add("origin", $"https://bargain.lol.garena.vn");
+            client.DefaultRequestHeaders.Add("accept", $"application/json, text/plain, */*");
 
 
-            //Console.WriteLine("Getting profile ...");
-            //var configResponse = client.GetAsync("https://bargain.lol.garena.vn/api/config");
-            //var cfgmsg = await configResponse;
-            //Console.WriteLine(await cfgmsg.Content.ReadAsStringAsync());
-            //Console.WriteLine("---------------------------------------------------------");
+            Console.WriteLine("Getting profile ...");
+            var configResponse = client.GetAsync("https://bargain.lol.garena.vn/api/config");
+            var cfgmsg = await configResponse;
+            Console.WriteLine(await cfgmsg.Content.ReadAsStringAsync());
+            Console.WriteLine("---------------------------------------------------------");
 
-            //var profileResponse = client.GetAsync("https://bargain.lol.garena.vn/api/profile");
-            //var msg = await profileResponse;
-            //Console.WriteLine(await msg.Content.ReadAsStringAsync());
-            //Console.WriteLine("---------------------------------------------------------");
+            var profileResponse = client.GetAsync("https://bargain.lol.garena.vn/api/profile");
+            var msg = await profileResponse;
+            Console.WriteLine(await msg.Content.ReadAsStringAsync());
+            Console.WriteLine("---------------------------------------------------------");
 
-            //Uri uri = new Uri("https://bargain.lol.garena.vn");
-            //IEnumerable<Cookie> responseCookies = cookies.GetCookies(uri).Cast<Cookie>();
-            //foreach (Cookie cookie in responseCookies)
-            //{
-            //    Console.WriteLine(cookie.Name + ": " + cookie.Value);
-            //}
+            Uri uri = new Uri("https://bargain.lol.garena.vn");
+            IEnumerable<Cookie> responseCookies = cookies.GetCookies(uri).Cast<Cookie>();
+            foreach (Cookie cookie in responseCookies)
+            {
+                Console.WriteLine(cookie.Name + ": " + cookie.Value);
+            }
 
             Console.WriteLine("Spamming codes ...");
 
             for (int i = 0; i < codes.Count; i++)
             {
-                var jsonObject = new StringContent($"{{\"code\":\"{codes[i]}\",\"confirm\": true}}", Encoding.UTF8, "application/json");
+                var jsonObject = new StringContent($"{{\"code\":\"{codes[i]}\",\"confirm\": false}}", Encoding.UTF8, "application/json");
+                var tempEnterResponse = client.PostAsync("https://bargain.lol.garena.vn/api/enter", jsonObject);
+                var tempEntermsg = await tempEnterResponse;
+                var tempMsgstr = await tempEntermsg.Content.ReadAsStringAsync();
+
+                var jsonObject2 = new StringContent($"{{\"code\":\"{codes[i]}\",\"confirm\": true}}", Encoding.UTF8, "application/json");
                 Console.WriteLine(codes[i]);
-
-                var enterResponse = client.PostAsync("https://bargain.lol.garena.vn/api/enter", jsonObject);
-
+                var enterResponse = client.PostAsync("https://bargain.lol.garena.vn/api/enter", jsonObject2);
                 var entermsg = await enterResponse;
-
                 var msgstr = await entermsg.Content.ReadAsStringAsync();
 
                 Console.WriteLine(msgstr);
